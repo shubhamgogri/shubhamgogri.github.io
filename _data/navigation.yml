@@ -1,0 +1,11 @@
+main:
+  - title: "Projects"
+    url: /projects/
+  - title: "Experience"
+    url: /experience/
+  - title: "Journal"
+    url: /journal/
+  - title: "About"
+    url: /about/
+  - title: "Resume"
+    url: /resume/

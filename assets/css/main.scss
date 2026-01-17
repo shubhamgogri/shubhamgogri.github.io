@@ -1,0 +1,21 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+/* Custom variables and overrides */
+@import "custom/variables";
+
+/* Import Minimal Mistakes theme */
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* Custom styling */
+@import "custom/typography";
+@import "custom/header";
+@import "custom/spacing";
+@import "custom/sidebar";
+@import "custom/grid-overrides";
+@import "custom/hero";
+@import "custom/portfolio";

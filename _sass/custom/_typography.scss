@@ -1,0 +1,81 @@
+/* ==========================================================================
+   Custom Typography
+   ========================================================================== */
+
+/* Base typography improvements */
+body {
+  line-height: 1.6;
+  font-size: 1em;
+}
+
+/* Heading hierarchy */
+h1 {
+  font-size: $h-size-1;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: $h-size-2;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: $h-size-3;
+  font-weight: 600;
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: $h-size-4;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+/* Paragraph spacing */
+p {
+  margin-bottom: 1.25em;
+}
+
+/* Links */
+a {
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Code styling */
+code {
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre code {
+  padding: 0;
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: 1.25em;
+
+  li {
+    margin-bottom: 0.5em;
+  }
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 1.5em 0;
+  padding-left: 1.5em;
+  border-left: 4px solid $link-color;
+  font-style: italic;
+}

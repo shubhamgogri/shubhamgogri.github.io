@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Custom Spacing - Global whitespace rules
+   Note: Component-specific spacing is in their respective files:
+   - Sidebar: _sidebar.scss
+   - Hero: _hero.scss
+   - Grid: _grid-overrides.scss
+   - Portfolio: _portfolio.scss
+   ========================================================================== */
+
+/* Page container */
+.page {
+  padding: 2em 1em;
+
+  @media (min-width: 64em) {
+    padding: 3em 2em;
+  }
+}
+
+/* Footer */
+.page__footer {
+  margin-top: 4em;
+  padding: 2em 1em 1em;
+}

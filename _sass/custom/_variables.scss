@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Custom Variables
+   ========================================================================== */
+
+/* Typography */
+$type-size-4: 1em !default;      // ~16px - Better readability
+$type-size-5: 0.95em !default;   // ~15px
+
+/* Heading sizes - Reduced for better readability */
+$h-size-1: 1.4em !default;
+$h-size-2: 1.2em !default;
+$h-size-3: 1.05em !default;
+$h-size-4: 1em !default;
+$h-size-5: 0.95em !default;
+$h-size-6: 0.9em !default;
+
+/* Spacing */
+$spacing-unit: 1.5em !default;
+
+/* Colors - For light theme */
+$link-color: #0077b6 !default;  // Professional blue for links
+$link-color-hover: #005a8c !default;
+$link-color-visited: mix(#000, $link-color, 15%) !default;
+
+/* Code blocks */
+$code-background-color: #f5f5f5 !default;
+
+/* Sidebar */
+$sidebar-width: 240px !default;
+
+/* Content */
+$max-width: 1200px !default;

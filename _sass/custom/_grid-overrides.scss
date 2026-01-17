@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Grid Layout Overrides - Responsive Layout with Sidebar
+   ========================================================================== */
+
+/* Ensure proper layout for ALL pages with sidebar */
+#main {
+  @media (min-width: 64em) {
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+.sidebar {
+  @media (min-width: 64em) {
+    flex: 0 0 $sidebar-width;
+    margin-right: 2em;
+  }
+}
+
+/* Content area adjustments for all layouts */
+.archive,
+.page__content {
+  @media (min-width: 64em) {
+    flex: 1;
+    width: auto;
+    float: none;
+    padding-inline-end: 0;
+  }
+}
+
+/* Specific overrides for collection pages */
+.layout--collection {
+  /* Remove grid wrapper negative margins */
+  .archive .grid__wrapper {
+    margin-inline-end: 0 !important;
+  }
+}

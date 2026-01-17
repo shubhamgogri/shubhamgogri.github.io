@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Custom Sidebar - Minimal & Clean
+   ========================================================================== */
+
+/* Compact sidebar on extreme left */
+.sidebar {
+  position: sticky;
+  top: 1em;
+  left: 0;
+  padding: 1em 0.75em;
+
+  @media (max-width: 64em) {
+    padding: 1em;
+  }
+}
+
+/* Author avatar - ensure it displays */
+.author__avatar {
+  margin-bottom: 0.75em;
+  text-align: center;
+
+  img {
+    max-width: 120px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+
+  @media (max-width: 64em) {
+    img {
+      max-width: 100px;
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+/* Author name */
+.author__name {
+  margin-bottom: 0.25em;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Author bio - ML Engineer title */
+.author__bio {
+  margin-bottom: 0.5em;
+  font-size: 0.85em;
+  line-height: 1.4;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Location */
+.author__urls-wrapper {
+  .author__urls {
+    li {
+      margin-bottom: 0.35em;
+      font-size: 0.8em;
+
+      // Hide location text, keep only contact links
+      &:first-child {
+        display: none;  // Hide location if it's first
+      }
+    }
+
+    a {
+      font-size: 0.85em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      &:hover {
+        color: $link-color;
+      }
+    }
+
+    .label {
+      font-weight: 500;
+    }
+  }
+}
+
+/* Ensure sidebar width on larger screens */
+@media (min-width: 64em) {
+  .sidebar {
+    width: $sidebar-width;
+    max-width: $sidebar-width;
+  }
+}

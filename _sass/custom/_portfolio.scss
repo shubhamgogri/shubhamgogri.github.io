@@ -1,0 +1,478 @@
+/* ==========================================================================
+   Portfolio/Project Styling
+   ========================================================================== */
+
+/* Project grid layout (custom) */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2em;
+  margin: 2em 0;
+
+  @media (max-width: 48em) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Override grid items on projects collection page - Optimized for 2-column layout */
+.layout--collection .grid__item {
+  // Reset float-based positioning
+  float: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+
+  .archive__item {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      border-color: rgba(0, 119, 182, 0.3);
+      background: rgba(0, 0, 0, 0.03);
+    }
+  }
+
+  // Teaser images - hide when empty
+  .archive__item-teaser {
+    max-height: 180px !important;
+    height: auto;
+    flex-shrink: 0;
+    background: transparent;
+
+    // Hide teaser when no image
+    &:empty,
+    &:not(:has(img)) {
+      display: none !important;
+      height: 0 !important;
+      min-height: 0 !important;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .archive__item:hover .archive__item-teaser img {
+    transform: scale(1.02);
+  }
+
+  // Optimized title styling - handles long titles
+  .archive__item-title {
+    font-size: 1.3em !important;
+    font-weight: 600;
+    margin-bottom: 0.75em;
+    padding: 1.25em 1.5em 0;
+    margin-top: 0;
+    line-height: 1.3;
+    min-height: 2.6em;  // Ensures consistent height for 2 lines
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        color: $link-color;
+      }
+    }
+  }
+
+  // Optimized excerpt - handles varying lengths
+  .archive__item-excerpt {
+    font-size: 0.9em !important;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 0 1.5em;
+    margin-bottom: 1.25em;
+    flex-grow: 1;
+
+    // Limit to 4 lines with ellipsis for better content display
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Cleaner tag styling with better wrapping
+  .page__taxonomy {
+    padding: 0 1.5em 1.5em;
+    margin-top: auto;  // Push to bottom
+
+    .page__taxonomy-item {
+      font-size: 0.7em;
+      padding: 0.4em 0.75em;
+      background: rgba(0, 119, 182, 0.08);
+      border: 1px solid rgba(0, 119, 182, 0.2);
+      border-radius: 12px;
+      color: #0077b6;
+      margin-right: 0.5em;
+      margin-bottom: 0.5em;
+      display: inline-block;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(0, 119, 182, 0.15);
+        border-color: rgba(0, 119, 182, 0.4);
+      }
+    }
+  }
+
+  // Custom footer with tags and GitHub link
+  .archive__item-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5em 1.5em;
+    margin-top: auto;
+    gap: 1em;
+  }
+
+  .archive__item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+
+    .tag {
+      font-size: 0.7em;
+      padding: 0.35em 0.7em;
+      background: rgba(0, 119, 182, 0.08);
+      border: 1px solid rgba(0, 119, 182, 0.2);
+      border-radius: 12px;
+      color: #0077b6;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .archive__item-github {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+    font-size: 1.2em;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      background: rgba(0, 119, 182, 0.1);
+      color: #0077b6;
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* Apply same styling to posts/journal layout for consistency */
+.layout--posts .grid__item,
+.layout--posts .archive__item {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5em;
+  padding: 1.5em;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 119, 182, 0.3);
+  }
+}
+
+/* Better spacing between grid items using CSS Grid - 2 columns layout */
+.layout--collection .entries-grid {
+  display: grid;
+  gap: 2em;
+
+  // Mobile: 1 column
+  grid-template-columns: 1fr;
+
+  // Tablet and up: 2 columns
+  @media (min-width: 48em) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5em;
+  }
+
+  @media (min-width: 64em) {
+    gap: 3em;
+  }
+}
+
+/* Project cards */
+.project-card {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 119, 182, 0.3);
+  }
+
+  .project-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: transparent;
+  }
+
+  .project-card__content {
+    padding: 1.5em;
+  }
+
+  .project-card__title {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: $link-color;
+      }
+    }
+  }
+
+  .project-card__excerpt {
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 1em;
+  }
+
+  .project-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: 1em;
+
+    .tag {
+      font-size: 0.8em;
+      padding: 0.25em 0.75em;
+      background: rgba(0, 119, 182, 0.08);
+      border: 1px solid rgba(0, 119, 182, 0.2);
+      border-radius: 12px;
+      color: #0077b6;
+      font-weight: 500;
+    }
+  }
+}
+
+/* Timeline for experience */
+.timeline {
+  position: relative;
+  padding: 2em 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: $link-color;
+
+    @media (max-width: 64em) {
+      left: 1em;
+    }
+  }
+}
+
+/* ==========================================================================
+   Related Posts ("You May Also Enjoy") - Compact Sidebar Style
+   ========================================================================== */
+
+.page__related {
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+  // On larger screens, position as a narrow sidebar
+  @media (min-width: 80em) {
+    position: fixed;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10%;
+    max-width: 180px;
+    min-width: 120px;
+    margin: 0;
+    padding: 1em;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    z-index: 10;
+  }
+
+  .page__related-title {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 1em;
+
+    @media (min-width: 80em) {
+      font-size: 0.7em;
+      margin-bottom: 0.75em;
+    }
+  }
+
+  .grid__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+
+    @media (min-width: 80em) {
+      gap: 0.5em;
+    }
+  }
+
+  .grid__item {
+    width: 100% !important;
+    float: none !important;
+    margin: 0 !important;
+
+    .archive__item {
+      padding: 0.5em;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: rgba(0, 119, 182, 0.05);
+      }
+    }
+
+    .archive__item-teaser {
+      display: none; // Hide images in sidebar view
+    }
+
+    .archive__item-title {
+      font-size: 0.85em !important;
+      line-height: 1.3;
+      margin: 0 !important;
+      padding: 0 !important;
+      min-height: auto !important;
+
+      @media (min-width: 80em) {
+        font-size: 0.75em !important;
+      }
+
+      a {
+        color: #333;
+        text-decoration: none;
+
+        &:hover {
+          color: #0077b6;
+        }
+      }
+    }
+
+    .archive__item-excerpt,
+    .page__meta {
+      display: none; // Hide excerpt and meta in compact view
+    }
+  }
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 3em;
+  padding-bottom: 3em;
+
+  @media (max-width: 64em) {
+    padding-left: 4em;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0.5em;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: $link-color;
+    border: 3px solid #fff;
+
+    @media (max-width: 64em) {
+      left: calc(1em - 6px);
+    }
+  }
+
+  .timeline-item__title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.25em;
+  }
+
+  .timeline-item__subtitle {
+    font-size: 1.1em;
+    color: $link-color;
+    margin-bottom: 0.5em;
+  }
+
+  .timeline-item__date {
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 1em;
+    font-style: italic;
+  }
+
+  .timeline-item__content {
+    line-height: 1.7;
+
+    ul {
+      margin-top: 1em;
+      margin-left: 1.5em;
+
+      li {
+        margin-bottom: 0.75em;
+      }
+    }
+  }
+
+  .timeline-item__tech {
+    margin-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+
+    .tech-tag {
+      font-size: 0.85em;
+      padding: 0.25em 0.75em;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      font-weight: 500;
+    }
+  }
+}
