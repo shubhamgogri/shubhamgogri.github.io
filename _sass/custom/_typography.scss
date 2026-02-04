@@ -16,6 +16,13 @@ h1 {
   line-height: 1.2;
 }
 
+/* Page title - smaller and more compact */
+.page__title {
+  font-size: 1.15em;
+  font-weight: 600;
+  margin-bottom: 0.75em;
+}
+
 h2 {
   font-size: $h-size-2;
   font-weight: 700;
